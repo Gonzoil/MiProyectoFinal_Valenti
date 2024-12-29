@@ -5,8 +5,8 @@ from .views import PageListView, PageDetailView
 app_name = 'pages'
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('', PageListView.as_view(), name='page-list'),
+    path('', views.pages_home, name='home'),
     path('<int:pk>/', PageDetailView.as_view(), name='page-detail'),
+    path('blogs/', views.blog_view, name='blogs'),
     
 ]
