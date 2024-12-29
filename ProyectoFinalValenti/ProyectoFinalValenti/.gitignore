@@ -1,6 +1,35 @@
+# Python
 __pycache__/
-db.sqlite3
-media/
-env/
-*.pyc
+*.py[cod]
 *.pyo
+*.pyd
+
+# Entorno virtual
+env/
+venv/
+
+# Archivos de configuración local
+*.env
+.DS_Store
+
+# Archivos de bases de datos
+db.sqlite3
+
+# Archivos de migraciones (opcional)
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Archivos estáticos y de medios
+media/
+staticfiles/
+
+# Archivos de logs
+*.log
+
+# Configuración de IDEs/editor
+.vscode/
+.idea/
+
+# Otros
+*.swp
+*.swo

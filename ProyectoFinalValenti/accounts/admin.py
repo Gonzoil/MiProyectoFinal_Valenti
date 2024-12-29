@@ -1,7 +1,6 @@
 from django.contrib import admin
+from .models import Message
 
-# superuser account: gonzalo
-# Email: gonza.valenti@hotmail.com
-# pass: asdf1234
+admin.site.register(Message)
 
-# Register your models here.
+

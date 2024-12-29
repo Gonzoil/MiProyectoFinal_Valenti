@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}{{ message.subject }}{% endblock %}
+
+{% block content %}
+<h1>{{ message.subject }}</h1>
+<p><strong>De:</strong> {{ message.sender.username }}</p>
+<p>{{ message.content }}</p>
+<a href="{% url 'inbox' %}">Volver a la bandeja de entrada</a>
+{% endblock %}

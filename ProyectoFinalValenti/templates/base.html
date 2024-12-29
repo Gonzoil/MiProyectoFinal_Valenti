@@ -1,19 +1,33 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/pages/">Pages</a>
-        <a href="/accounts/login/">Login</a>
+        <a href="/">Inicio</a>
+        <a href="/about/">Acerca de mí</a>
+        <a href="/pages/">Páginas</a>
+        {% if user.is_authenticated %}
+            <a href="/accounts/profile/">Perfil</a>
+            <a href="/accounts/logout/">Cerrar sesión</a>
+        {% else %}
+            <a href="/accounts/login/">Iniciar sesión</a>
+            <a href="/accounts/signup/">Registrarse</a>
+        {% endif %}
     </nav>
     <main>
         {% block content %}
+        <!-- El contenido específico de cada vista irá aquí -->
         {% endblock %}
     </main>
+    <footer>
+        <p>&copy; 2024 Blog</p>
+    </footer>
 </body>
 </html>
