@@ -23,6 +23,12 @@ class PageDetailView(LoginRequiredMixin, DetailView):
     template_name = 'pages/page_detail.html'
     context_object_name = 'page'
 
+class PageCreateView(LoginRequiredMixin, CreateView):
+    model = Page
+    fields = ['title', 'content']
+    template_name = 'pages/page_form.html'
+    success_url = reverse_lazy('pages:page-list')
+
 class PageUpdateView(LoginRequiredMixin, UpdateView):
     model = Page
     fields = ['title', 'content']

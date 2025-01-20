@@ -1,20 +1,14 @@
-{% extends "base.html" %}
-
-{% block title %}Páginas{% endblock %}
-
+{% extends 'base.html' %}
 {% block content %}
-<h1>Páginas</h1>
-{% if pages %}
-    <ul>
+<h1>Lista de páginas</h1>
+<a href="{% url 'pages:page-create' %}">Crear nueva página</a>
+<ul>
     {% for page in pages %}
         <li>
-            <h2>{{ page.title }}</h2>
-            <p>{{ page.subtitle }}</p>
-            <a href="{% url 'page-detail' page.pk %}">Leer más</a>
+            <a href="{% url 'pages:page-detail' page.pk %}">{{ page.title }}</a>
+            (<a href="{% url 'pages:page-update' page.pk %}">Editar</a>)
+            (<a href="{% url 'pages:page-delete' page.pk %}">Eliminar</a>)
         </li>
     {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay páginas aún.</p>
-{% endif %}
+</ul>
 {% endblock %}

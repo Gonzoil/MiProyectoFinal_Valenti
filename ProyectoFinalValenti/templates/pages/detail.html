@@ -1,3 +1,4 @@
+<!--
 {% extends "base.html" %}
 
 {% block title %}{{ page.title }}{% endblock %}
@@ -7,4 +8,14 @@
 <h2>{{ page.subtitle }}</h2>
 <img src="{{ page.image.url }}" alt="{{ page.title }}">
 <p>{{ page.content|safe }}</p>
+{% endblock %}
+-->
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ page.title }}</h1>
+<p>{{ page.content }}</p>
+<a href="{% url 'pages:page-update' page.pk %}">Editar</a>
+<a href="{% url 'pages:page-delete' page.pk %}">Eliminar</a>
+<a href="{% url 'pages:page-list' %}">Volver a la lista</a>
 {% endblock %}
